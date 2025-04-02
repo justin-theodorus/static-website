@@ -1,9 +1,9 @@
-from htmlnode import HtmlNode
-from markdown_to_block import markdown_to_blocks
-from block_to_block import block_to_block_type
-from blocktype import BlockType
-from markdown_pipeline import text_to_textnodes
-from textnode import text_node_to_html_node
+from src.htmlnode import HtmlNode
+from src.markdown_to_block import markdown_to_blocks
+from src.block_to_block import block_to_block_type
+from src.blocktype import BlockType
+from src.markdown_pipeline import text_to_textnodes
+from src.textnode import text_node_to_html_node
 
 def text_to_children(text):
     text_nodes = text_to_textnodes(text)

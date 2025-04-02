@@ -1,5 +1,5 @@
 import re
-from blocktype import BlockType
+from src.blocktype import BlockType
 
 def block_to_block_type(block):
     lines = block.split("\n")

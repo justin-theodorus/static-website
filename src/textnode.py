@@ -1,5 +1,5 @@
 from enum import Enum
-from leafnode import LeafNode
+from src.leafnode import LeafNode
 #from split_nodes import split_nodes_image, split_nodes_link
 
 class TextType(Enum):
