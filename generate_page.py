@@ -24,10 +24,12 @@ def generate_page(from_path, template_path, dest_path, base_path="/"):
     # Replace template placeholders
     template = template.replace("{{ Title }}", title)
     template = template.replace("{{ Content }}", html)
-    template = template.replace("{{ BASEPATH }}", base_path.rstrip("/") + "/")
-
-    template = template.replace('href="/', f'href="{base_path}')
+    template = template.replace("{{ BASEPATH }}", base_path)
+    #template = template.replace('href="/', f'href="{base_path}')
     template = template.replace('src="/', f'src="{base_path}')
+
+
+    
 
     with open(dest_path, "w") as f:
         f.write(template)
