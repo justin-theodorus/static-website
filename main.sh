@@ -7,5 +7,5 @@ export PYTHONPATH=src
 python3 main.py
 
 # Start server in the public folder
-cd public
+cd docs
 python3 -m http.server

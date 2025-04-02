@@ -2,7 +2,7 @@ import os
 import shutil
 
 
-def copy_static_to_output(src="stc", dest="public"):
+def copy_static_to_output(src="stc", dest="docs"):
     # Step 1: Clear the destination if it exists
     if os.path.exists(dest):
         shutil.rmtree(dest)
