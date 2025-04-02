@@ -1,27 +1,25 @@
 import os
+import sys
 from generate_page import generate_page
-from src.main import copy_static_to_public  
+from src.main import copy_static_to_output
 
 def main():
-    # Step 1: Clean and copy static files
-    copy_static_to_public()
+    base_path = sys.argv[1] if len(sys.argv) > 1 else "/"
+    output_dir = "docs" 
 
-    # Step 2: Walk through the content folder recursively
+    copy_static_to_output(dest=output_dir)
+
     for root, dirs, files in os.walk("content"):
         for file in files:
             if file.endswith(".md"):
                 from_path = os.path.join(root, file)
-
-                # Turn content/blog/glorfindel/index.md into public/blog/glorfindel/index.html
                 relative_path = os.path.relpath(from_path, "content")
-                dest_path = os.path.join("public", relative_path)
+                dest_path = os.path.join(output_dir, relative_path)
                 dest_path = dest_path.replace(".md", ".html")
 
-                # Ensure directory exists
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
 
-                # Generate the page
-                generate_page(from_path, "template.html", dest_path)
+                generate_page(from_path, "template.html", dest_path, base_path)
 
 if __name__ == "__main__":
     main()
